@@ -186,7 +186,7 @@ class EncoderDecoderNet(nn.Module):
 
         x = self.tail(fused_fea)
         output = F.tanh(x)
-        output = torch.minimum(torch.maximum(output, 
+        output = torch.min(torch.max(output, 
             torch.from_array(np.array(0).float())), 
             torch.from_array(np.array(1).float()))
         if target_var is None:
